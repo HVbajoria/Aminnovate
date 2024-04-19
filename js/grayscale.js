@@ -11,6 +11,8 @@ var navbarCollapse = function() {
   }
 };
 
+
+
 var mobile = false;
 
 var windowResize = function() {
@@ -32,6 +34,11 @@ var windowResize = function() {
 
   $(window).resize(function() {
     windowResize();
+  });
+
+  // Add click event handler for menu button
+  $(".navbar-toggler").click(function() {
+    $(".navbar-collapse").toggleClass("show");
   });
 
   // Smooth scrolling using jQuery easing
