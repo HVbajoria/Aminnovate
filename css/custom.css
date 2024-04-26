@@ -576,10 +576,16 @@ p {
 }
 
 /* Schedule*/
+#schedFri {
+  display: inline-block;
+}
 #schedSat {
   display: inline-block;
 }
 #schedSun {
+  display: inline-block;
+}
+#schedMon{
   display: inline-block;
 }
 .schedule .table {
@@ -654,7 +660,7 @@ p {
 }
 
 .sponsor-tier {
-  color: #;
+  
 }
 
 .sponsor-img-container {
