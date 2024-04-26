@@ -17,23 +17,79 @@ class scheduleEvent {
 
 }
 
+var friday = [];
 var saturday = [];
 var sunday = [];
 var monday =[];
 // track = {main, ws} where ws is workshop
+friday.push(new scheduleEvent("Registration Ends", "20:00", "main"));
+friday.push(new scheduleEvent("Acceptance mails released", "20:30", "main"));
+friday.push(new scheduleEvent("Vouchers and links shared via mail", "23:45", "main"));
 saturday.push(new scheduleEvent("Hacking Begins", "00:00", "main"));
-saturday.push(new scheduleEvent("Opening Ceremony", "10:30", "main"));
-saturday.push(new scheduleEvent("Unleashing wonders of GitHub", "15:30", "16:30", "ws"));
-saturday.push(new scheduleEvent("Fun Activity!", "22:00", "main"));
-sunday.push(new scheduleEvent("Mentor Session!!", "15:00", "main"));
+saturday.push(new scheduleEvent("Opening Ceremony", "11:00", "main"));
+saturday.push(new scheduleEvent("Mentoring Session", "14:00", "main"));
+saturday.push(new scheduleEvent("Unleashing wonders of GitHub", "21:00", "22:00", "ws"));
+saturday.push(new scheduleEvent("Fun Activity!", "23:00", "main"));
+sunday.push(new scheduleEvent("Developing Interactive AR Apps for Mobile Devices", "11:00", "12:00" ,"ws"));
+sunday.push(new scheduleEvent("Mentoring Session", "15:00", "main"));
+sunday.push(new scheduleEvent("Neworking Session", "18:00", "19:00", "ws"));
+sunday.push(new scheduleEvent("Soft Submission Deadline", "22:00", "main"));
 sunday.push(new scheduleEvent("Hacking Ends", "23:59", "main"));
-monday.push(new scheduleEvent("Top 10 team announcement", "10:00", "main"));
-monday.push(new scheduleEvent("Pitching Session", "11:30", "main"));
-monday.push(new scheduleEvent("Closing Ceremony", "15:30", "main"));
+monday.push(new scheduleEvent("Top 10 team announcement", "03:00", "main"));
+monday.push(new scheduleEvent("Pitching Session for top 10 teams", "11:30", "main"));
+monday.push(new scheduleEvent("Closing Ceremony", "16:30", "main"));
 
+friday.sort((a,b) => (a.startTime >= b.startTime) ? 1 : -1);
 saturday.sort((a,b) => (a.startTime >= b.startTime) ? 1: -1);
 sunday.sort((a,b) => (a.startTime >= b.startTime) ? 1 : -1 );
 monday.sort((a,b) => (a.startTime >= b.startTime) ? 1 : -1 );
+
+var str = '<tbody>';
+str +=  '<tr><th></th><th>Main track</th><th></th><th>Workshops</th></tr>';
+friday.forEach(function(ev, index){
+  if (index ==0  || friday[index-1].startTime != ev.startTime){     
+    str += '<tr>';
+    if (ev.track == 'ws'){
+
+        str += '<th></th>';
+        str += '<td></td>';
+    }
+
+  str += '<th>';
+
+  str += ev.startTime 
+  if (ev.endTime){
+    str+='<br />|<br />' + ev.endTime;
+  }
+  str += '</th>';
+  str += '<td>';
+  str += ev.title + '';
+  str += '</td>';
+  
+  if (ev.track == 'main'){
+      if(index != friday.length-1 && ev.startTime == friday[index+1].startTime){
+        str += '<th>';
+        str+=friday[index+1].startTime
+        if(friday[index+1].endTime){
+        str +=  '<br />|<br />' + friday[index+1].endTime;
+      }
+    
+  str += '</th>';
+  str += '<td>' + friday[index+1].title+ '</td>';
+    }
+  else{
+  str +='<th></th>';
+  str += '<td></td>';
+  }}
+  
+  str += '</tr>';
+  
+  }
+
+});
+str += '</tbody>';
+window.document.getElementById("fridayContainer").innerHTML = str;
+
 var str = '<tbody>';
 str +=  '<tr><th></th><th>Main track</th><th></th><th>Workshops</th></tr>';
 saturday.forEach(function(ev, index){
