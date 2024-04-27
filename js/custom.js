@@ -28,7 +28,7 @@ friday.push(new scheduleEvent("Vouchers and links shared via mail", "23:45", "ma
 saturday.push(new scheduleEvent("Hacking Begins", "00:00", "main"));
 saturday.push(new scheduleEvent("Opening Ceremony", "11:00", "main"));
 saturday.push(new scheduleEvent("Mentoring Session", "14:00", "main"));
-saturday.push(new scheduleEvent("Unleashing wonders of GitHub", "21:00", "22:00", "ws"));
+saturday.push(new scheduleEvent("Unleashing wonders of GitHub", "21:15", "22:15", "ws"));
 saturday.push(new scheduleEvent("Fun Activity!", "23:00", "main"));
 sunday.push(new scheduleEvent("Developing Interactive AR Apps for Mobile Devices", "11:00", "12:00" ,"ws"));
 sunday.push(new scheduleEvent("Mentoring Session", "15:00", "main"));
